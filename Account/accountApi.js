@@ -31,7 +31,7 @@ router.post("/", (req, res) => {
   AccountModal.findOne({ username: username })
     .then((data) => {
       if (data) {
-        res.status(500).jsonp("user đã tồn tại");
+        res.status(400).jsonp("user đã tồn tại");
       } else {
         AccountModal.create(req.body)
           .then((data) => {

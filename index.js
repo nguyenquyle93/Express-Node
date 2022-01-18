@@ -1,16 +1,18 @@
 // const express = require('express')
 import express from 'express';
+import cors from 'cors'
 const app = express()
 const port = 3000
 import {router} from './Account/accountApi.js';
 import bodyParser from 'body-parser';
+
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
-
+app.use(cors());
 app.get('/', (req, res) => {
   res.json('Hello World aa!')
 })
